@@ -506,7 +506,7 @@ sub {
 .typography-work-card-modal-image-caption {
     font-size: 19px;
     line-height: 1.2105263158;
-    font-weight: 400;
+    font-weight: 200;
     letter-spacing: .012em;
     font-family: SF Pro Display,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif
 }
@@ -515,7 +515,7 @@ sub {
     .typography-work-card-modal-image-caption {
         font-size:14px;
         line-height: 1.2857742857;
-        font-weight: 400;
+        font-weight: 200;
         letter-spacing: -0.016em;
         font-family: SF Pro Text,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif
     }
@@ -931,14 +931,6 @@ sub {
     width: 980px
 }
 
-@media only screen and (min-width: 1441px) {
-    .viewport-content {
-        margin-inline-start: auto;
-        margin-inline-end: auto;
-        width: 980px
-    }
-}
-
 @media only screen and (max-width: 1068px) {
     .viewport-content {
         margin-inline-start: auto;
@@ -1052,12 +1044,6 @@ sub {
     will-change: transform
 }
 
-@media only screen and (min-width: 1441px) {
-    .card .card-modifier {
-        min-height:620px
-    }
-}
-
 @media only screen and (max-width: 734px) {
     .card .card-modifier {
         min-width: 260px
@@ -1102,12 +1088,6 @@ sub {
 
 .card .card-modifier.fixed-width {
     width: 372px
-}
-
-@media only screen and (min-width: 1441px) {
-    .card .card-modifier.fixed-width {
-        width:405px
-    }
 }
 
 @media only screen and (max-width: 1068px) {
@@ -1233,12 +1213,6 @@ sub {
     width: fit-content
 }
 
-@media only screen and (min-width: 1441px) {
-    .gallery .item-container {
-        --gallery-column-gap:72px
-    }
-}
-
 @media only screen and (max-width: 1068px) {
     .gallery .item-container {
         --gallery-column-gap:72px;
@@ -1328,12 +1302,6 @@ sub {
     transition: transform .3s cubic-bezier(0,0,0.5,1)
 }
 
-@media only screen and (min-width: 1441px) {
-    .work-card:hover {
-        transform: scale(1.0148148148)
-    }
-}
-
 .work-card:hover {
     transform: scale(1.0161290323)
 }
@@ -1355,13 +1323,6 @@ sub {
     min-height: 680px
 }
 
-@media only screen and (min-width: 1441px) {
-    .work-card .card-modifier {
-        max-height: 804px;
-        min-height: 740px
-    }
-}
-
 @media only screen and (max-width: 1068px) {
     .work-card .card-modifier {
         max-height: 684px;
@@ -1378,12 +1339,6 @@ sub {
 
 .work-card .work-card-copy {
     padding-bottom: 523px
-}
-
-@media only screen and (min-width: 1441px) {
-    .work-card .work-card-copy {
-        padding-bottom: 583px
-    }
 }
 
 @media only screen and (max-width: 1068px) {
@@ -1535,7 +1490,7 @@ sub {
     height: auto
 }
 
-.work-card-modal-tile .card .image-container .work-card-modal-absolute-caption {
+.work-card-modal-tile .card .image-container {
     color: #6e6e73
 }
 
@@ -1980,6 +1935,117 @@ html.has-modal .modal-close-button {
 .modal-page-overlay .modal-close-button:active .modal-close-icon {
     background-color: var(--scrim-active-background-color);
     color: var(--icon-interaction-color)
+}
+
+.modal-tile-absolute-caption {
+    --bubble-bg-color: rgba(22,22,23,0.93);
+    padding: 37px 45px 37px 41px;
+    background: var(--bubble-bg-color);
+    border-radius: 16px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 50.3%;
+    top: 28%;
+    transform: scale(var(--caption-scale-ratio));
+    transform-origin: right center;
+    transition: transform .3s cubic-bezier(0,0,0.5,1)
+}
+
+@media only screen and (max-width: 1068px) {
+    .modal-tile-absolute-caption {
+        right: 45.9%;
+        padding: 28px 34px;
+        border-radius: 12px;
+        top: 24%
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .modal-tile-absolute-caption {
+        padding: 23px 30px;
+        border-radius: 13px;
+        right: 36.5%;
+        top: 24%
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .modal-tile-absolute-caption {
+        padding: 17px 23px;
+        border-radius: 10px
+    }
+}
+
+.modal-tile-absolute-caption:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 24px solid rgba(0,0,0,0);
+    border-bottom: 24px solid rgba(0,0,0,0);
+    border-left: 24px solid var(--bubble-bg-color);
+    position: absolute;
+    right: -24px
+}
+
+@media only screen and (max-width: 1068px) {
+    .modal-tile-absolute-caption:after {
+        border-top:18px solid rgba(0,0,0,0);
+        border-bottom: 18px solid rgba(0,0,0,0);
+        border-left: 18px solid var(--bubble-bg-color);
+        right: -18px
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .modal-tile-absolute-caption:after {
+        border-top:16px solid rgba(0,0,0,0);
+        border-bottom: 16px solid rgba(0,0,0,0);
+        border-left: 16px solid var(--bubble-bg-color);
+        right: -16px
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .modal-tile-absolute-caption:after {
+        border-top:13px solid rgba(0,0,0,0);
+        border-bottom: 13px solid rgba(0,0,0,0);
+        border-left: 13px solid var(--bubble-bg-color);
+        right: -13px
+    }
+}
+
+.modal-tile-absolute-caption .work-card-modal-absolute-caption {
+    font-size: 27px;
+    line-height: 38.75px;
+    color: #f7f7f7;
+    word-spacing: 2px
+}
+
+@media only screen and (max-width: 1068px) {
+    .modal-tile-absolute-caption .work-card-modal-absolute-caption {
+        font-size:20px;
+        line-height: 29.56px;
+        word-spacing: -1px;
+        letter-spacing: 1px
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .modal-tile-absolute-caption .work-card-modal-absolute-caption {
+        font-size:20px;
+        line-height: 32px;
+        word-spacing: 1px;
+        letter-spacing: 0px
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .modal-tile-absolute-caption .work-card-modal-absolute-caption {
+        font-size:15px;
+        line-height: 24px
+    }
 }
 
 .globalfooter {    
